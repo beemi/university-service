@@ -1,4 +1,4 @@
-package com.jaitech.ltd.universityservice;
+package com.jaitech.ltd;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
