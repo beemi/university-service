@@ -1,22 +1,25 @@
 package com.jaitech.ltd.model;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import io.swagger.v3.oas.annotations.Parameter;
+
+import java.util.List;
 
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "University")
+@Document(collection = "universitycollection")
 public class University {
 
     @Id
-    @Parameter(description = "University id", required = true)
-    private int id;
+    @NotNull
     @Parameter(description = "University Code", required = true)
     private String code;
     @Parameter(description = "University name", required = true)
@@ -25,6 +28,10 @@ public class University {
     private String email;
     @Parameter(description = "University phone")
     private String phone;
+    @Parameter(description = "University domains")
+    private List<String> domains;
+    @Parameter(description = "University web pages")
+    private List<String> webpages;
     @Parameter(description = "University address")
     private String address;
     @Parameter(description = "University city")

@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UniversityRepository  extends MongoRepository<University, String> {
 
+    Object findByNameContainingIgnoreCase(final String universityName);
 }

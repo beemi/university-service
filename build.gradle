@@ -24,26 +24,32 @@ ext {
 	set('testcontainersVersion', "1.17.6")
 }
 
+def springBootVersion = "2.6.6"
+def lombokVersion = "1.18.22"
+
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
 	// spring boot mongodb
-	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-mongodb', version: '2.6.6'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
-	testImplementation 'org.testcontainers:junit-jupiter'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-mongodb', version: springBootVersion
 
 	// swagger
-	implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.6.7'
+	implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.6.13'
 
-	compileOnly 'org.projectlombok:lombok:1.18.22'
-	annotationProcessor 'org.projectlombok:lombok:1.18.22'
-	testCompileOnly 'org.projectlombok:lombok:1.18.22'
-	testAnnotationProcessor 'org.projectlombok:lombok:1.18.22'
+	compileOnly 'org.projectlombok:lombok:' + lombokVersion
+	annotationProcessor 'org.projectlombok:lombok:' + lombokVersion
+	testCompileOnly 'org.projectlombok:lombok:' + lombokVersion
+	testAnnotationProcessor 'org.projectlombok:lombok:' + lombokVersion
+
+	implementation "io.micrometer:micrometer-core"
+	implementation "io.micrometer:micrometer-registry-prometheus"
+
+	// test
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.testcontainers:junit-jupiter'
 }
 
 dependencyManagement {

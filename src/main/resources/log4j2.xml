@@ -4,10 +4,10 @@
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level [%t] %logger{36} - %msg%n"/>
         </Console>
-        <logger name="com.jaitech.ltd.service.UniversityService" level="DEBUG"/>
+        <logger name="com.jaitech.ltd.service.UniversityService" level="TRACE"/>
     </Appenders>
     <Loggers>
-        <Root level="DEBUG">
+        <Root level="TRACE">
             <AppenderRef ref="Console"/>
         </Root>
     </Loggers>
